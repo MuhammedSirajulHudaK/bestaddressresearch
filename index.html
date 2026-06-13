@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,6 +175,254 @@ h2.h2.white{color:#fff;}
   .g3,.g4g{grid-template-columns:1fr 1fr;}
   .before-after{grid-template-columns:1fr;}
 }
+
+
+/* ════════════════════════════════════════
+   MOBILE — complete override for ≤768px
+════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Allow slides to scroll naturally on mobile */
+  html, body { overflow: auto !important; height: auto !important; }
+  .deck { height: auto !important; overflow: visible !important; }
+  .wrap {
+    display: block !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Each slide becomes a full scrollable block */
+  .slide {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    display: block !important;
+    border-bottom: 4px solid var(--border);
+  }
+
+  /* All reveal elements show immediately on mobile */
+  .rv { opacity: 1 !important; transform: none !important; }
+
+  /* Nav — compact */
+  .nav {
+    padding: .5rem 4% !important;
+    flex-wrap: wrap !important;
+    gap: .35rem !important;
+  }
+  .nav-center { display: none !important; }
+  .nav-title { font-size: .78rem !important; }
+  .g4 span { width: 7px !important; height: 7px !important; }
+  .nb { width: 26px !important; height: 26px !important; font-size: .75rem !important; }
+  .nc { font-size: .65rem !important; }
+
+  /* No fixed progress bar */
+  .pbar { display: none !important; }
+
+  /* Inner padding for all slides */
+  .inner {
+    padding: 5rem 5% 2.5rem !important;
+    min-height: 100vh !important;
+    height: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Typography */
+  h1.h1 { font-size: clamp(1.9rem, 7vw, 2.6rem) !important; margin-bottom: .75rem !important; }
+  h2.h2 { font-size: clamp(1.4rem, 5.5vw, 2rem) !important; margin-bottom: .6rem !important; }
+  .body { font-size: .85rem !important; line-height: 1.7 !important; }
+
+  /* ── COVER ── */
+  .cover-split {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  .cover-left {
+    padding: 5.5rem 5% 2rem !important;
+    order: 1 !important;
+  }
+  .cover-right {
+    order: 2 !important;
+    height: 260px !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    display: block !important;
+  }
+  .cover-stat { gap: 1rem !important; padding: 1rem !important; flex-wrap: wrap !important; }
+  .cs-n { font-size: 1.5rem !important; }
+  .cover-chips { gap: .35rem !important; }
+
+  /* ── BEFORE/AFTER ── */
+  .before-after {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+  }
+  .ba-body { padding: .4rem 1rem 1rem !important; }
+  .ba-row { font-size: .8rem !important; }
+
+  /* ── ALL INLINE GRIDS — nuke fixed heights, stack columns ── */
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns:1.1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.2fr"],
+  [style*="grid-template-columns:1fr 1.2fr"],
+  [style*="grid-template-columns: 1fr 1.1fr"],
+  [style*="grid-template-columns:1fr 1.1fr"],
+  [style*="grid-template-columns: 1.15fr 1fr"],
+  [style*="grid-template-columns:1.15fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  [style*="grid-template-columns: repeat(4"],
+  [style*="grid-template-columns:repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ── KILL FIXED HEIGHTS ── */
+  [style*="height:52vh"],
+  [style*="height: 52vh"],
+  [style*="height:54vh"],
+  [style*="height: 54vh"],
+  [style*="height:56vh"],
+  [style*="height: 56vh"],
+  [style*="height:58vh"],
+  [style*="height: 58vh"],
+  [style*="height:60vh"],
+  [style*="height: 60vh"] {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* ── PROMISE SLIDE (dark) ── */
+  #s2 .inner { padding-top: 5.5rem !important; }
+  #s2 h2.h2 { font-size: clamp(1.4rem, 6vw, 2rem) !important; }
+
+  /* ── LOCATION MAP SLIDE ── */
+  #s3 .inner { height: auto !important; }
+  #s3 [style*="height:52vh"],
+  #s3 [style*="height: 52vh"] { height: auto !important; display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+
+  /* Map pin area — give it a fixed height so pins are visible */
+  #s3 [style*="border-radius:14px;overflow:hidden;position:relative;background:#e8f0fe"] {
+    height: 240px !important;
+    width: 100% !important;
+  }
+
+  /* ── EXECUTION SLIDE ── */
+  .g4g { grid-template-columns: 1fr 1fr !important; gap: .75rem !important; }
+
+  /* ── VISION SLIDE ── */
+  #s7 [style*="grid-template-columns:1fr 1.1fr"],
+  #s7 [style*="grid-template-columns: 1fr 1.1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  #s7 [style*="height:60vh"],
+  #s7 [style*="height: 60vh"] { height: auto !important; }
+  #s7 [style*="border-radius:14px;overflow:hidden;position:relative;flex:1"] {
+    height: 200px !important;
+    flex: none !important;
+  }
+  #s7 [style*="grid-template-columns:1fr 1fr;gap:.75rem"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ── MENTAL FREEDOM SLIDE ── */
+  #s8 [style*="height:58vh"],
+  #s8 [style*="height: 58vh"] { height: auto !important; display: block !important; }
+  #s8 [style*="border-radius:14px;overflow:hidden;position:relative;flex:1"] {
+    height: 200px !important; flex: none !important; width: 100% !important;
+    margin-bottom: .75rem !important;
+  }
+
+  /* ── CLOSE / ASK SLIDE ── */
+  .close-split {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  .close-left {
+    padding: 5.5rem 5% 2rem !important;
+    order: 1 !important;
+  }
+  .close-right {
+    order: 2 !important;
+    height: 300px !important;
+    width: 100% !important;
+    display: block !important;
+    min-height: 0 !important;
+  }
+  .close-badge { font-size: .68rem !important; padding: .5rem 1rem !important; }
+
+  /* ── STAT CARDS ── */
+  .stat-card { padding: 1rem .85rem !important; }
+  .stat-n { font-size: 1.6rem !important; }
+
+  /* ── RESEARCH RESULT CARDS ── */
+  .res-card { font-size: .8rem !important; }
+  .res-img { height: 80px !important; }
+  .res-item { font-size: .72rem !important; }
+
+  /* ── TALENT / CARD CHIPS ── */
+  .chip { font-size: .65rem !important; padding: .2rem .55rem !important; }
+  .card { padding: 1rem .9rem !important; }
+  .card-t { font-size: .85rem !important; }
+  .card-d { font-size: .76rem !important; }
+
+  /* ── PHOTO HEIGHT FOR TALENT SLIDE ── */
+  #s5 [style*="height:54vh"],
+  #s5 [style*="height: 54vh"] { height: auto !important; display: flex !important; flex-direction: column !important; }
+  #s5 [style*="border-radius:14px;overflow:hidden;position:relative"] {
+    height: 200px !important;
+    width: 100% !important;
+    flex: none !important;
+    margin-bottom: .75rem !important;
+  }
+
+  /* ── INVESTORS SLIDE ── */
+  #s4 .g2 { grid-template-columns: 1fr !important; }
+  #s4 [style*="height:56vh"] { height: auto !important; }
+
+  /* ── PROMISE SLIDE GRID ── */
+  #s2 [style*="grid-template-columns:repeat(3"] {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+
+  /* ── NAV MOBILE SCROLL DOTS (show slide counter only) ── */
+  .dots { display: none !important; }
+  .slide-name { display: none !important; }
+
+  /* Buttons */
+  .btn { padding: .65rem 1.25rem !important; font-size: .78rem !important; }
+
+  /* g4bar */
+  .g4bar { margin-bottom: .65rem !important; }
+  .g4bar span { width: 22px !important; height: 3px !important; }
+
+  /* Eye label */
+  .eye { font-size: .58rem !important; margin-bottom: .4rem !important; }
+}
+
+/* ── TABLET 769–1024px ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .inner { padding: 4.5rem 4% 2rem !important; }
+  h1.h1 { font-size: clamp(2rem, 4vw, 3rem) !important; }
+  h2.h2 { font-size: clamp(1.5rem, 3vw, 2.2rem) !important; }
+  .cover-split, .close-split { grid-template-columns: 1fr 1fr !important; }
+  .g4g { grid-template-columns: 1fr 1fr !important; }
+  [style*="grid-template-columns: repeat(3"],
+  [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr 1fr !important; }
+  .before-after { grid-template-columns: 1fr 1fr !important; }
+}
+
 </style>
 </head>
 <body>
@@ -781,8 +1030,27 @@ document.addEventListener('touchstart',e=>{ty=e.touches[0].clientY;},{passive:tr
 document.addEventListener('touchend',e=>{
   const dy=ty-e.changedTouches[0].clientY;if(Math.abs(dy)>50)dy>0?step(1):step(-1);
 },{passive:true});
-sync();
-setTimeout(()=>revealIn(0),200);
+
+// Mobile: disable slide-deck nav, use normal scroll
+const isMobile = window.innerWidth <= 768;
+if (isMobile) {
+  // Show all slides, disable keyboard/wheel nav
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('show'));
+  document.getElementById('wrap').style.transform = 'none';
+  document.querySelectorAll('.slide').forEach(s => s.style.height = 'auto');
+} else {
+  // Desktop: normal deck nav
+  sync();
+  setTimeout(() => revealIn(0), 200);
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) {
+    document.getElementById('wrap').style.transform = 'none';
+    document.querySelectorAll('.rv').forEach(el => el.classList.add('show'));
+  }
+});
+
 </script>
 </body>
 </html>
